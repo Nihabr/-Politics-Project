@@ -8,8 +8,7 @@ import csv
 import unicodedata
 import time as tm
 import datetime as dt
-
-from Test import secrets
+import secrets
 
 csvfilepath = 'PoliticsLim0.csv'
 
