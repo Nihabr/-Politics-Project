@@ -6,11 +6,12 @@ Created on Sep 21, 2016
 import praw
 import csv
 import unicodedata
+import time as tm
 import datetime as dt
 
 from Test import secrets
 
-csvfilepath = 'C:/Users/nihab/AppData/Local/Programs/Python/PoliticsLim0.csv'
+csvfilepath = 'PoliticsLim0.csv'
 
 '''praw.helpers.submissions_between(reddit_session,
              subreddit, lowest_timestamp=None, highest_timestamp=None, newest_first=True, 
@@ -20,8 +21,13 @@ def run_bot(r):
     counter = 0
     subcounter = 0
     subreddit = r.get_subreddit("politics")
+    lts = dt.date(2015, 7, 1)
+    lts = tm.mktime(lts.timetuple())
+    hts = dt.date(2016, 11, 7)
+    hts = tm.mktime(hts.timetuple())
+    
     '''submissions = subreddit.get_hot(limit = 0)'''
-    submissions = praw.helpers.submissions_between(r, subreddit, newest_first=True)
+    submissions = praw.helpers.submissions_between(r, subreddit, lowest_timestamp=lts, highest_timestamp=hts, newest_first=True)
     columns = ['counter', 'comment body', 'date', 'karma']
     commentlist = [columns]      
     
