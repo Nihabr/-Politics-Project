@@ -9,9 +9,9 @@ from operator import itemgetter
 
 
 pydir = 'C:/Users/nihab/AppData/Local/Programs/Python/'
-filename = 'csvfile2.csv'
+filename = 'DatasetV1.csv'
 commentlist = []
-newfilename = 'SciptTest.csv'
+newfilename = 'DatasetV1Sorted.csv'
 
 def somefunction():
     with open (pydir+filename, 'r', encoding='utf8') as csvfile:
@@ -33,7 +33,7 @@ def somefunction():
             
             
 
-    with open (pydir+newfilename, 'w') as mf:
+    with open (pydir+newfilename, 'w', encoding='utf8', newline='') as mf:
             wr = csv.writer(mf, delimiter=',')
             wr.writerows(sc)
             mf.close()
